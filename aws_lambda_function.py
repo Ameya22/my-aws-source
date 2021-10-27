@@ -14,7 +14,7 @@ import boto3 # Python SDK for AWS
 
 s3 = boto3.client('s3')
 topic = boto3.client('sns')
-bucket = 'my-lucky-draw-bucket'
+bucket = 'your-bucket-name'
 key = 'config.json'
 
 
@@ -61,7 +61,7 @@ def publish_msg(message):
     """
     try:
         resp = topic.publish(
-            TargetArn="arn:aws:sns:us-east-1:647569116701:BC-Lucky-Draw",
+            TargetArn="your-topic-arn",
             Message=json.dumps({'default': message}),
             MessageStructure='json')
         print("Published message successfully")
